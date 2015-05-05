@@ -6,6 +6,12 @@ var little = require('little-template');
 var fs = require('fs');
 var path = require('path');
 
+/**
+ * Render a string of HTML using Little Template
+ *
+ *  @param {Object|Function}  settings    Plugin settings, or a function to use to render templates. If an object is given, the value for 'render' must be a function to handle rendering templates.
+ * @api public
+ */
 module.exports = function (settings) {
     settings = (typeof settings == 'function') ? {render: settings} : settings;
     settings.ext = typeof settings.ext === "undefined" ? ".html" : settings.ext;
