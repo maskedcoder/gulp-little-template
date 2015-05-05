@@ -60,7 +60,7 @@ Default: `{ext: '.html'}`
 
 A hash object to configure the plugin.
 
-#### options.render
+##### options.render
 Type: `Function (String, hash, String) -> String`
 **Required**
 
