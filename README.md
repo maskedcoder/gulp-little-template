@@ -25,16 +25,16 @@
 
 ```javascript
 var gulp = require('gulp');
-var template = require('gulp-little-template');
+var littleTemplate = require('gulp-little-template');
 var ejs = require('ejs');
-var fs = require('fs');
 
 gulp.task('default', function () {
   return gulp.src('src/greeting.html')
-    .pipe(template(function (templateName, context) {
-      var file = fs.readFileSync(templateName, {encoding: 'utf-8'});
-
-      return ejs.render(file, {locals: context, filename: templateName});
+    .pipe(littleTemplate({
+      path: 'templates',
+      render: function (templateText, context, templateName) {
+        return ejs.render(templateText, {locals: context, filename: templateName});
+      }
     }))
     .pipe(gulp.dest('dist'));
 });
@@ -49,6 +49,32 @@ gulp.task('default', function () {
 </body>
 </html>
 ```
+
+## API
+
+### littleTemplate(options)
+
+#### options
+Type: `hash`
+Default: `{ext: '.html'}`
+
+A hash object to configure the plugin.
+
+#### options.render
+Type: `Function (String, hash, String) -> String`
+**Required**
+
+A function to handle rendering any templates referenced in the HTML. The arguments are:
+ - `String` **templateText** - the text of the template file referenced
+ - `hash` **context** - A hash object where each key corresponds to a variable in your template
+ - `String` **templateText** - the name of the template referenced
+The function should return a String with the rendered template.
+
+##### options.ext
+Type: `String`
+Default: `.html`
+
+Defines the default file extension that will be appended to the filename.
 
 ## License
 
