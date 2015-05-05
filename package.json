@@ -20,5 +20,10 @@
   "license": "MIT",
   "devDependencies": {
     "mocha": "^2.2.4"
+  },
+  "dependencies": {
+    "gulp-util": "^3.0.4",
+    "little-template": "^1.0.0",
+    "through2": "^0.6.5"
   }
 }
