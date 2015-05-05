@@ -1,0 +1,24 @@
+{
+  "name": "gulp-little-template",
+  "version": "1.0.0",
+  "description": "Gulp plugin to compile static HTML from templates using Little Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "gulpplugin",
+    "rendering",
+    "template",
+    "html",
+    "compile",
+    "precompile",
+    "render",
+    "gulp"
+  ],
+  "author": "Andrew Myers",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  }
+}
