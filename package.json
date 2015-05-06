@@ -26,5 +26,9 @@
     "gulp-util": "^3.0.4",
     "little-template": "^1.0.0",
     "through2": "^0.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maskedcoder/gulp-little-template.git"
   }
 }
