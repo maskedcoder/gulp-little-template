@@ -39,7 +39,6 @@ module.exports = function (settings) {
             file.path = gutil.replaceExtension(file.path, settings.ext);
         } catch (err) {
             this.emit('error', new gutil.PluginError('gulp-little-template', err.toString()));
-          throw err;
         }
 
         this.push(file);
