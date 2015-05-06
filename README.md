@@ -8,7 +8,7 @@
 ```html
 <html>
 <body>
-{{#template templates/greet.ejs}}
+{{#template greet.ejs}}
   {{#var who}}world{{/var}}
 {{/template}}
 </body>
@@ -69,6 +69,13 @@ A function to handle rendering any templates referenced in the HTML. The argumen
  - `hash` **context** - A hash object where each key corresponds to a variable in your template
  - `String` **templateText** - the name of the template referenced
 The function should return a String with the rendered template.
+
+##### options.path
+Type: `String`
+Default `''`
+
+Defines where to find the templates. If this is left out, you will need to include the
+path in your source files, e.g. `{{#template path/to/template.jade}}`.
 
 ##### options.ext
 Type: `String`
