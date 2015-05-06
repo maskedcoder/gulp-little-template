@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+  </head>
+  <body>
+    <h1>This page contains a template</h1>
+    {{#template test2.html}}
+
+      {{#var status}}successful{{/var}}
+
+      {{#var embeddedTemplate}}
+        {{#template embed.html}}
+          {{#var embedValue}}cool{{/var}}
+        {{/template}}
+      {{/var}}
+
+      {{#list testing}}
+        {{#var}}one{{/var}}
+        {{#var}}two{{/var}}
+        {{#var}}three{{/var}}
+      {{/list}}
+
+    {{/template}}
+  </body>
+</html>
