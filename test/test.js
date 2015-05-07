@@ -9,6 +9,16 @@ var gutil = require('gulp-util'),
     little = require('../'),
     mustache = require('./lib/mustache');
 
+/**
+ * Remove extra whitespace characters from a string, preserving a single space character
+ *
+ * @param {String}  str    The string to remove whitespace from
+ * @return {String}
+ */
+var removeExtraWhitespaceChars = function (str) {
+  return str.replace(/\s+/g, ' ');
+};
+
 describe('gulp-little-template', function () {
 
     var expectedFile = new gutil.File({
@@ -22,8 +32,7 @@ describe('gulp-little-template', function () {
         path: 'test/expected/outputWithEmbeddedTemplate.html',
         cwd: 'test/',
         base: 'test/expected',
-        // This avoids issues like git and editors automatically adding spaces to files
-        contents: new Buffer('<!DOCTYPE html>\n<html>\n  <head>\n    <title>Test</title>\n  </head>\n  <body>\n    <h1>This page contains a template</h1>\n    <h2>The test was successful</h2>\n<p>Testing...</p>\n\n        <p>This is <b>cool</b>.</p>\r\n\n      \n<ul>\n    <li>one</li>\n    <li>two</li>\n    <li>three</li>\n</ul>\n\n  </body>\n</html>\n')
+        contents: fs.readFileSync('test/expected/outputWithEmbeddedTemplate.html')
     });
 
     it('should produce correct html output when rendering a file', function (done) {
@@ -147,7 +156,8 @@ describe('gulp-little-template', function () {
       should.exist(newFile);
       should.exist(newFile.contents);
 
-      String(newFile.contents).should.equal(String(expectedFileWithEmbed.contents));
+      removeExtraWhitespaceChars(String(newFile.contents))
+        .should.equal(removeExtraWhitespaceChars(String(expectedFileWithEmbed.contents)));
       done();
     });
 
