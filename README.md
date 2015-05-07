@@ -1,5 +1,9 @@
-# gulp-little-template
+# gulp-little-template [![Build Status](https://travis-ci.org/maskedcoder/gulp-little-template.svg?branch=master)](https://travis-ci.org/maskedcoder/gulp-little-template)
 > Generate static HTML files with [Little Template](https://github.com/maskedcoder/little-template)
+
+## Installation
+
+    $ npm install gulp-little-template
 
 ## Usage
 
