@@ -1,0 +1,9 @@
+{
+  "preset": "node-style-guide",
+  "disallowSpacesInFunction": null,
+  "requireTrailingComma": null,
+  "requireSpacesInFunction": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  }
+}
