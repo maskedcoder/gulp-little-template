@@ -37,7 +37,11 @@ gulp.task('default', function () {
     .pipe(littleTemplate({
       path: 'templates',
       render: function (templateText, context, templateName) {
-        return ejs.render(templateText, {locals: context, filename: templateName});
+
+        // Send the file name to ejs, so ejs can cache precompiled template
+        context.filename = templateName;
+
+        return ejs.render(templateText, context);
       }
     }))
     .pipe(gulp.dest('dist'));
